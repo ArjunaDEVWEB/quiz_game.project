@@ -31,7 +31,20 @@ const QUESTIONS = [
       "Plants absorb carbon dioxide (CO₂) and release oxygen during photosynthesis.",
   },
   {
-    question: "Who was the first president of the Republic of Indonesia?",
+    question: "Who was the first president of united states?",
+    category: "History • United States",
+    options: [
+      "Thomas Jefferson",
+      "John Adams",
+      "George Washington",
+      "James Madison",
+      "John Quincy Adams"
+    ],
+    correctIndex: 2,
+    explanation: "George Washington was the first president of the United States (1789–1797).",
+  },
+  {
+    question: "Who was the first president of Indonesia?",
     category: "History • Indonesia",
     options: [
       "Suharto",
@@ -174,7 +187,7 @@ const QUESTIONS = [
     category: "Mathematics • Time",
     options: ["30 minutes", "45 minutes", "60 minutes", "90 minutes", "100 minutes"],
     correctIndex: 2,
-    explanation: "1 jam = 60 menit = 3.600 detik.",
+    explanation: "1 hour = 60 minutes.",
   },
   {
     question: "Which human organ pumps blood throughout the body?",
@@ -202,12 +215,12 @@ const QUESTIONS = [
       "Mount Everest (8,849 m) in the Himalayas is the highest mountain in the world.",
   },
   {
-    question: "In what year did Indonesia proclaim its independence?",
-    category: "History • Indonesia",
+    question: "In what year did hiroshima and nagasaki bombings occur?",
+    category: "History • World War II",
     options: ["1942", "1945", "1949", "1950", "1955"],
     correctIndex: 1,
     explanation:
-      "Indonesia's Proclamation of Independence was read on August 17, 1945.",
+      "The atomic bombs were dropped on Hiroshima and Nagasaki in August 1945, leading to Japan's surrender and the end of World War II."
   },
   {
     question: "What is 3/4 of 100?",
