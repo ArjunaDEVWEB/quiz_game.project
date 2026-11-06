@@ -1,3 +1,10 @@
+// Quiz Game JavaScript
+// made by: ArjunaDEVWEB
+// version: 1.0
+// date: 2024-06-15
+// This script handles the quiz game logic, including question management, user interactions, and result calculations.
+//feel free to modify and use this code for your own quiz game projects.
+
 const QUESTIONS = [
   {
     question: "Which planet is closest to the Sun?",
