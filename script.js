@@ -44,17 +44,17 @@ const QUESTIONS = [
     explanation: "George Washington was the first president of the United States (1789–1797).",
   },
   {
-    question: "Who was the first president of Indonesia?",
-    category: "History • Indonesia",
-    options: [
-      "Suharto",
-      "B. J. Habibie",
-      "Sukarno",
-      "Joko Widodo",
-      "Megawati Sukarnoputri",
-    ],
-    correctIndex: 2,
-    explanation: "Sukarno was Indonesia's first president (1945–1967).",
+  question: "Who was the first president of Russia?",
+  category: "History • Russia",
+  options: [
+    "Vladimir Putin",
+    "Dmitry Medvedev",
+    "Boris Yeltsin",
+    "Mikhail Gorbachev",
+    "Leonid Brezhnev",
+  ],
+  correctIndex: 2,
+  explanation: "Boris Yeltsin was the first president of the Russian Federation, serving from 1991 to 1999.",
   },
   {
     question: "What is the official language of Brazil?",
