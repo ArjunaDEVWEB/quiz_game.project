@@ -1,0 +1,572 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Interactive Quiz Game">
+    <meta name="author" content="Quiz Game">
+
+    <title>Quiz Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- MAIN APPLICATION -->
+    <main id="quiz-app" class="quiz-app">
+
+        <!-- HEADER -->
+        <header id="quiz-header" class="quiz-header">
+
+            <div class="header-brand">
+                <h1 class="app-title">Quiz Game</h1>
+                <p class="app-subtitle">Test Your Knowledge!</p>
+            </div>
+
+            <div class="header-statistics">
+
+                <div class="stat-card score-card">
+                    <span class="stat-label">Current Score</span>
+                    <span id="current-score" class="stat-value">0</span>
+                </div>
+
+                <div class="stat-card timer-card">
+                    <span class="stat-label">Time Remaining</span>
+                    <span id="quiz-timer" class="stat-value">00:00</span>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- QUIZ INFORMATION -->
+        <section id="quiz-information" class="quiz-information">
+
+            <div class="quiz-info-item">
+                <span class="info-label">Total Questions</span>
+                <span id="total-questions" class="info-value">25</span>
+            </div>
+
+            <div class="quiz-info-item">
+                <span class="info-label">Answered</span>
+                <span id="answered-count" class="info-value">0</span>
+            </div>
+
+            <div class="quiz-info-item">
+                <span class="info-label">Remaining</span>
+                <span id="remaining-count" class="info-value">25</span>
+            </div>
+
+        </section>
+
+
+        <!-- PROGRESS SECTION -->
+        <section id="progress-section" class="progress-section">
+
+            <div class="progress-information">
+                <span class="progress-label">Quiz Progress</span>
+                <span id="progress-percentage" class="progress-percentage">0%</span>
+            </div>
+
+            <div
+                id="progress-container"
+                class="progress-container"
+                role="progressbar"
+                aria-label="Quiz progress"
+                aria-valuemin="0"
+                aria-valuemax="25"
+                aria-valuenow="0"
+            >
+                <div id="progress-bar" class="progress-bar"></div>
+            </div>
+
+        </section>
+
+
+        <!-- QUIZ CONTENT -->
+        <section id="quiz-container" class="quiz-container">
+
+            <!-- QUESTION HEADER -->
+            <div id="question-header" class="question-header">
+
+                <p class="question-number">1/25</p>
+
+                <span id="question-status" class="question-status">
+                    Not Answered
+                </span>
+
+                <button
+                    type="button"
+                    id="mark-question-btn"
+                    class="mark-question-btn"
+                >
+                    Mark for Review
+                </button>
+
+            </div>
+
+
+            <!-- QUESTION -->
+            <div id="question-content" class="question-content">
+
+                <h2 id="question-title" class="question-title">
+                    Question will appear here.
+                </h2>
+
+                <p id="question-description" class="question-description">
+                    Choose one of the five answers below.
+                </p>
+
+            </div>
+
+
+            <!-- ANSWER OPTIONS -->
+            <div id="answer-container" class="answer-container">
+
+                <button
+                    type="button"
+                    id="answer-1"
+                    class="answer-option"
+                    data-answer="A"
+                >
+                    <span class="answer-letter">A</span>
+                    <span id="answer-text-1" class="answer-text">
+                        Answer option A
+                    </span>
+                </button>
+
+                <button
+                    type="button"
+                    id="answer-2"
+                    class="answer-option"
+                    data-answer="B"
+                >
+                    <span class="answer-letter">B</span>
+                    <span id="answer-text-2" class="answer-text">
+                        Answer option B
+                    </span>
+                </button>
+
+                <button
+                    type="button"
+                    id="answer-3"
+                    class="answer-option"
+                    data-answer="C"
+                >
+                    <span class="answer-letter">C</span>
+                    <span id="answer-text-3" class="answer-text">
+                        Answer option C
+                    </span>
+                </button>
+
+                <button
+                    type="button"
+                    id="answer-4"
+                    class="answer-option"
+                    data-answer="D"
+                >
+                    <span class="answer-letter">D</span>
+                    <span id="answer-text-4" class="answer-text">
+                        Answer option D
+                    </span>
+                </button>
+
+                <button
+                    type="button"
+                    id="answer-5"
+                    class="answer-option"
+                    data-answer="E"
+                >
+                    <span class="answer-letter">E</span>
+                    <span id="answer-text-5" class="answer-text">
+                        Answer option E
+                    </span>
+                </button>
+
+            </div>
+
+
+            <!-- ANSWER FEEDBACK -->
+            <div id="answer-feedback" class="answer-feedback" aria-live="polite">
+
+                <p id="feedback-message" class="feedback-message"></p>
+
+            </div>
+
+
+            <!-- QUESTION NAVIGATION -->
+            <nav id="question-navigation" class="question-navigation">
+
+                <button
+                    type="button"
+                    id="previous-question-btn"
+                    class="navigation-btn previous-btn"
+                    disabled
+                >
+                    Previous
+                </button>
+
+                <button
+                    type="button"
+                    id="clear-answer-btn"
+                    class="navigation-btn clear-answer-btn"
+                >
+                    Clear Answer
+                </button>
+
+                <button
+                    type="button"
+                    id="next-question-btn"
+                    class="navigation-btn next-btn"
+                >
+                    Next
+                </button>
+
+            </nav>
+
+        </section>
+
+
+        <!-- QUESTION PALETTE -->
+        <section id="question-palette-section" class="question-palette-section">
+
+            <div class="palette-header">
+                <h3 class="palette-title">Question Navigator</h3>
+
+                <button
+                    type="button"
+                    id="toggle-palette-btn"
+                    class="toggle-palette-btn"
+                >
+                    Toggle Navigator
+                </button>
+            </div>
+
+            <div id="question-palette" class="question-palette">
+
+                <!-- 25 QUESTION NAVIGATION BUTTONS -->
+
+                <button type="button" class="question-nav-item" data-question="1">1</button>
+                <button type="button" class="question-nav-item" data-question="2">2</button>
+                <button type="button" class="question-nav-item" data-question="3">3</button>
+                <button type="button" class="question-nav-item" data-question="4">4</button>
+                <button type="button" class="question-nav-item" data-question="5">5</button>
+
+                <button type="button" class="question-nav-item" data-question="6">6</button>
+                <button type="button" class="question-nav-item" data-question="7">7</button>
+                <button type="button" class="question-nav-item" data-question="8">8</button>
+                <button type="button" class="question-nav-item" data-question="9">9</button>
+                <button type="button" class="question-nav-item" data-question="10">10</button>
+
+                <button type="button" class="question-nav-item" data-question="11">11</button>
+                <button type="button" class="question-nav-item" data-question="12">12</button>
+                <button type="button" class="question-nav-item" data-question="13">13</button>
+                <button type="button" class="question-nav-item" data-question="14">14</button>
+                <button type="button" class="question-nav-item" data-question="15">15</button>
+
+                <button type="button" class="question-nav-item" data-question="16">16</button>
+                <button type="button" class="question-nav-item" data-question="17">17</button>
+                <button type="button" class="question-nav-item" data-question="18">18</button>
+                <button type="button" class="question-nav-item" data-question="19">19</button>
+                <button type="button" class="question-nav-item" data-question="20">20</button>
+
+                <button type="button" class="question-nav-item" data-question="21">21</button>
+                <button type="button" class="question-nav-item" data-question="22">22</button>
+                <button type="button" class="question-nav-item" data-question="23">23</button>
+                <button type="button" class="question-nav-item" data-question="24">24</button>
+                <button type="button" class="question-nav-item" data-question="25">25</button>
+
+            </div>
+
+            <div class="palette-legend">
+
+                <span class="legend-item">
+                    <span class="legend-indicator answered-indicator"></span>
+                    Answered
+                </span>
+
+                <span class="legend-item">
+                    <span class="legend-indicator unanswered-indicator"></span>
+                    Unanswered
+                </span>
+
+                <span class="legend-item">
+                    <span class="legend-indicator marked-indicator"></span>
+                    Marked
+                </span>
+
+                <span class="legend-item">
+                    <span class="legend-indicator current-indicator"></span>
+                    Current
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- QUIZ CONTROL PANEL -->
+        <section id="quiz-controls" class="quiz-controls">
+
+            <button
+                type="button"
+                id="restart-quiz-btn"
+                class="control-btn restart-btn"
+            >
+                Restart Quiz
+            </button>
+
+            <button
+                type="button"
+                id="submit-quiz-btn"
+                class="control-btn submit-btn"
+            >
+                Submit Quiz
+            </button>
+
+        </section>
+
+
+        <!-- SUBMIT CONFIRMATION -->
+        <dialog id="submit-confirmation" class="confirmation-dialog">
+
+            <div class="dialog-content">
+
+                <h2 class="dialog-title">Finish Quiz?</h2>
+
+                <p id="confirmation-message" class="dialog-message">
+                    Are you sure you want to submit your answers?
+                </p>
+
+                <p id="unanswered-warning" class="unanswered-warning">
+                    You still have unanswered questions.
+                </p>
+
+                <div class="dialog-actions">
+
+                    <button
+                        type="button"
+                        id="cancel-submit-btn"
+                        class="dialog-btn cancel-btn"
+                    >
+                        Continue Quiz
+                    </button>
+
+                    <button
+                        type="button"
+                        id="confirm-submit-btn"
+                        class="dialog-btn confirm-btn"
+                    >
+                        Yes, Submit
+                    </button>
+
+                </div>
+
+            </div>
+
+        </dialog>
+
+
+        <!-- RESULTS SECTION -->
+        <section id="result-container" class="result-container" hidden>
+
+            <header class="result-header">
+
+                <h2 class="result-title">Quiz Completed!</h2>
+
+                <p id="result-message" class="result-message">
+                    Here are your results.
+                </p>
+
+            </header>
+
+
+            <!-- FINAL SCORE -->
+            <div id="final-score-card" class="final-score-card">
+
+                <span class="final-score-label">Your Final Score</span>
+
+                <h3 id="final-score" class="final-score">0</h3>
+
+                <span id="final-percentage" class="final-percentage">
+                    0%
+                </span>
+
+                <span id="grade-label" class="grade-label">
+                    Not Graded
+                </span>
+
+            </div>
+
+
+            <!-- RESULT STATISTICS -->
+            <div id="result-statistics" class="result-statistics">
+
+                <div class="result-stat-card correct-card">
+                    <span class="result-stat-label">Correct Answers</span>
+                    <span id="correct-count" class="result-stat-value">0</span>
+                </div>
+
+                <div class="result-stat-card incorrect-card">
+                    <span class="result-stat-label">Incorrect Answers</span>
+                    <span id="incorrect-count" class="result-stat-value">0</span>
+                </div>
+
+                <div class="result-stat-card unanswered-card">
+                    <span class="result-stat-label">Unanswered</span>
+                    <span id="final-unanswered-count" class="result-stat-value">0</span>
+                </div>
+
+                <div class="result-stat-card total-card">
+                    <span class="result-stat-label">Total Questions</span>
+                    <span id="final-total-questions" class="result-stat-value">25</span>
+                </div>
+
+            </div>
+
+
+            <!-- TIME STATISTICS -->
+            <div id="time-statistics" class="time-statistics">
+
+                <div class="time-stat-item">
+                    <span class="time-label">Total Time</span>
+                    <span id="total-time-taken" class="time-value">00:00</span>
+                </div>
+
+                <div class="time-stat-item">
+                    <span class="time-label">Average Time / Question</span>
+                    <span id="average-time" class="time-value">00:00</span>
+                </div>
+
+            </div>
+
+
+            <!-- RESULT ACTIONS -->
+            <div id="result-actions" class="result-actions">
+
+                <button
+                    type="button"
+                    id="review-answers-btn"
+                    class="result-btn review-btn"
+                >
+                    Review Answers
+                </button>
+
+                <button
+                    type="button"
+                    id="play-again-btn"
+                    class="result-btn play-again-btn"
+                >
+                    Play Again
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ANSWER REVIEW SECTION -->
+        <section id="review-container" class="review-container" hidden>
+
+            <header class="review-header">
+
+                <h2 class="review-title">Answer Review</h2>
+
+                <p class="review-description">
+                    Review all your answers and see the correct ones.
+                </p>
+
+            </header>
+
+            <div id="review-summary" class="review-summary">
+
+                <span id="review-correct-total" class="review-correct-total">
+                    Correct: 0
+                </span>
+
+                <span id="review-incorrect-total" class="review-incorrect-total">
+                    Incorrect: 0
+                </span>
+
+            </div>
+
+            <div id="review-list" class="review-list">
+
+                <!-- REVIEW ITEMS WILL BE GENERATED BY JAVASCRIPT -->
+
+            </div>
+
+            <button
+                type="button"
+                id="back-to-results-btn"
+                class="review-btn back-to-results-btn"
+            >
+                Back to Results
+            </button>
+
+        </section>
+
+
+        <!-- RESTART CONFIRMATION -->
+        <dialog id="restart-confirmation" class="restart-dialog">
+
+            <div class="dialog-content">
+
+                <h2 class="dialog-title">Restart Quiz?</h2>
+
+                <p class="dialog-message">
+                    All your current progress and answers will be reset.
+                </p>
+
+                <div class="dialog-actions">
+
+                    <button
+                        type="button"
+                        id="cancel-restart-btn"
+                        class="dialog-btn cancel-btn"
+                    >
+                        Cancel
+                    </button>
+
+                    <button
+                        type="button"
+                        id="confirm-restart-btn"
+                        class="dialog-btn confirm-btn"
+                    >
+                        Restart
+                    </button>
+
+                </div>
+
+            </div>
+
+        </dialog>
+
+
+        <!-- NOTIFICATION -->
+        <div
+            id="notification-container"
+            class="notification-container"
+            aria-live="polite"
+            aria-atomic="true"
+        >
+            <p id="notification-message" class="notification-message"></p>
+        </div>
+
+
+        <!-- FOOTER -->
+        <footer id="quiz-footer" class="quiz-footer">
+
+            <p class="footer-text">
+                made by Arjuna <!-- u can change this to your name if u want -->
+            </p>
+
+        </footer>
+
+    </main>
+<script src="script.js"></script>
+</body>
+</html>
