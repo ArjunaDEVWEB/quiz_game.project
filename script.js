@@ -419,13 +419,16 @@ const QUESTIONS = [
     correctIndex: 2,
     explanation: "A leap year has 366 days, with an extra day added to February.",
   },
+  // add more questions here
 ];
 
 const QUIZ_QUESTION_COUNT = 25;
 
+//false this configuration if you want to keep the original order of questions and options
 const SHUFFLE_QUESTIONS = true;
 const SHUFFLE_OPTIONS = true;
 
+// fisher–Yates shuffle algorithm
 function shuffleArray(arr) {
   for (let i = arr.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
