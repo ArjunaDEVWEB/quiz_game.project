@@ -419,7 +419,70 @@ const QUESTIONS = [
     correctIndex: 2,
     explanation: "A leap year has 366 days, with an extra day added to February.",
   },
-  // add more questions here
+  {
+    question: "Which planet is known for its rings?",
+    category: "Science • Astronomy",
+    options: ["Mars", "Jupiter", "Saturn", "Uranus", "Neptune"],
+    correctIndex: 2,
+    explanation: "Saturn is famous for its prominent ring system made of ice and rock particles.",
+  },
+  {
+    question: "What is the chemical symbol for gold?",
+    category: "Science • Chemistry",
+    options: ["Au", "Ag", "Gd", "Go", "Ga"],
+    correctIndex: 0,
+    explanation: "The chemical symbol for gold is Au, derived from its Latin name 'Aurum'.",
+  },
+  {
+    question: "Which country is known as the Land of the Rising Sun?",
+    category: "Geography • Countries",
+    options: ["China", "Japan", "Thailand", "South Korea", "Vietnam"],
+    correctIndex: 1,
+    explanation: "Japan is often called the Land of the Rising Sun due to its eastern location and cultural symbolism.",
+  },
+  {
+    question: "What is the freezing point of water in Fahrenheit?",
+    category: "Science • Physics",
+    options: ["32°F", "0°F", "100°F", "212°F", "50°F"],
+    correctIndex: 0,
+    explanation: "Water freezes at 32 degrees Fahrenheit (0 degrees Celsius).",
+  },
+  {
+    question: "Which organ in the human body is responsible for producing insulin?",
+    category: "Science • Biology",
+    options: ["Liver", "Pancreas", "Kidneys", "Heart", "Stomach"],
+    correctIndex: 1,
+    explanation: "The pancreas produces insulin, which regulates blood sugar levels.",
+  },
+  {
+    question: "What is the largest planet in our solar system?",
+    category: "Science • Astronomy",
+    options: ["Earth", "Jupiter", "Saturn", "Neptune", "Uranus"],
+    correctIndex: 1,
+    explanation: "Jupiter is the largest planet in our solar system, with a diameter of about 142,984 km.",
+  },
+  {
+    question: "Which element is essential for the formation of bones and teeth?",
+    category: "Science • Chemistry",
+    options: ["Calcium", "Iron", "Potassium", "Sodium", "Magnesium"],
+    correctIndex: 0,
+    explanation: "Calcium is a vital mineral for the development and maintenance of strong bones and teeth.",
+  },
+  {
+    question: "What is the capital city of Egypt?",
+    category: "Geography • Countries",
+    options: ["Cairo", "Alexandria", "Giza", "Luxor", "Aswan"],
+    correctIndex: 0,
+    explanation: "Cairo is the capital city of Egypt and the largest city in the Arab world.",
+  },
+  {
+    question: "Which gas is most abundant in the Earth's atmosphere?",
+    category: "Science • Chemistry",
+    options: ["Oxygen", "Carbon dioxide", "Nitrogen", "Hydrogen", "Argon"],
+    correctIndex: 2,
+    explanation: "Nitrogen makes up about 78% of the Earth's atmosphere, making it the most abundant gas.",
+  }
+  // add more questions here, and dont forget to add comma in between each question object
 ];
 
 const QUIZ_QUESTION_COUNT = 25;
