@@ -1,5 +1,5 @@
 // Quiz Game JavaScript
-// made by: ArjunaDEVWEB
+// made by: ArjunaDEVWEB (github.com/ArjunaDEVWEB)
 // version: 1.0
 // date: 2024-06-15
 // This script handles the quiz game logic, including question management, user interactions, and result calculations.
