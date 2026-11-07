@@ -17,6 +17,19 @@ An interactive, browser-based quiz application built with **HTML, CSS, and JavaS
 - Clear an answer and change it before submitting.
 - Submit confirmation and quiz result screen.
 
+## Benefits
+
+This project is designed to make learning and self-assessment more engaging. By taking the quiz regularly, users can:
+
+- **Test their general knowledge** across a variety of subjects.
+- **Improve and reinforce knowledge** by answering questions and reviewing explanations.
+- **Practice logical thinking and problem-solving** when working through challenging questions.
+- **Train focus and time management** with a timed quiz format.
+- **Identify learning gaps** and discover topics they may want to study further.
+- **Challenge themselves** with a different randomized set of questions on each attempt.
+
+> **Note:** This quiz is an educational practice tool, not a standardized IQ test. Its score should not be interpreted as an official measure of intelligence or IQ.
+
 ## Built With
 
 - HTML5
